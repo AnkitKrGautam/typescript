@@ -1,8 +1,18 @@
 export default function Home() {
-  const message: string = "Ankit Kumar Gautam";
+  let message: string = "Ankit";
+  
+  message ="ravi"
+
+  let a: AddEventListenerOptions;
+  let b: NodeJS.Process;
+
+  let person: Person = {
+    name: "Ankit"
+  }
+
   return (
     <div>
-      Hello World, {message}
+      Hello World, {message} {person.name}
     </div>
   )
 }
