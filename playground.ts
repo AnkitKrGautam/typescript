@@ -1,44 +1,39 @@
-// type aliases
-// to describe function types
-// type Person = { //both custom types and interface are same only a little difference
-//     name: string,
-//     age: number
-// }
 
-// TS recommend to use Interface over Types when possible
-
-
-//Describe data stucture in more natural way 
-//Describe objects
-//Shipment, Orders
-
-type Data = string;
-
-interface Person {   
-    name: Data,
-    age: number
+interface Person {
+  name: string
+  age: number
 }
 
+// interface PersonLoggerFn {
+//   (name: string, age: number): string
+// }
+
+type PersonLoggerFn = (name: string, age: number) => string
+
+
 export default function play() {
-  var name = "Ankit";
-  var age = 25;
+  const name: string = "Filip"
+  const age: number = 30
 
   const person: Person = {
-    name: "Lakshman",
-    age: 38
+    name: "John",
+    age: 34
   }
 
-  function logPersonInfo(personName: String, personAge: number) {
-    const info = `person name ${personName} and age is ${personAge}`;
-    console.log(info);
-    return info;
+
+  const logPersonInfo: PersonLoggerFn = (personName: string, personAge: number): string => {
+    const info = `Name: ${personName}, age: ${personAge}`
+    console.log(info)
+    return info
   }
-  logPersonInfo(name, age);
-  
+
   function logPersonInfo2(person: Person) {
-    const info = `person name ${person.name} and age is ${person.age}`;
-    console.log(info);
-    return info;
+    // const info = "Name: " + personName + ", age: " + personAge
+    const info = `Name: ${person.name}, age: ${person.age}`
+    console.log(info)
+    return info
   }
+
+  const log = logPersonInfo(name, age)
   logPersonInfo2(person)
 }
