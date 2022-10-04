@@ -5,9 +5,9 @@
 
 class Person {
   name: string;
-  age: number;
+  age?: number;
 
-  constructor(name: string, age: number) {
+  constructor(name: string, age?: number) {
     this.name = name;
     this.age = age;
   }
@@ -38,14 +38,14 @@ export default function play() {
 
   function logPersonInfo2(person: Person) {
     // const info = "Name: " + personName + ", age: " + personAge
-    const info = `Name: ${person.name}, age: ${person.age}`;
+    const info = `Name: ${person.name}, age: ${person.age ? person.age : 0}`;
     console.log(info);
     return info;
   }
 
   const log = logPersonInfo(name, age);
 
-  const person = new Person("The Flash", 10000);
+  const person = new Person("The Flash");
 
   logPersonInfo2(person);
 }
